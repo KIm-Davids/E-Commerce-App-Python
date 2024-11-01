@@ -7,6 +7,12 @@ from django.conf import settings
 class Collection(models.Model):
     title = models.CharField(max_length=255)
 
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        ordering = ['-title']
+
 
 class Product(models.Model):
     title = models.CharField(max_length=255, null=False, blank=False)
@@ -16,6 +22,12 @@ class Product(models.Model):
     last_updated = models.DateTimeField(auto_now=True)
     collection = models.ForeignKey(Collection, on_delete=models.PROTECT)
     promotion = models.ManyToManyField('Promotion', related_name='+')
+
+    def __str__(self):
+        return f"{self.title} {self.price}"
+
+    class Meta:
+        ordering = ['title']  #For Ascending order and for descending order - ['-title']
 
 
 class Cart(models.Model):

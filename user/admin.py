@@ -20,3 +20,16 @@ class UserAdmin(BaseUserAdmin):
 
 # ... means pass
 # admin.site.register(Customer)
+
+
+# @admin.register(Customer)
+# class CustomerAdmin(BaseUserAdmin):
+#     add_fieldsets = (
+#         (
+#             None,
+#             {
+#                 "classes": ("wide",),
+#                 "fields": ("username", "usable_password", "password1", "password2", "firstname", "lastname", "email"),
+#             },
+#         ),
+#     )
