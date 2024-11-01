@@ -16,12 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 import django.urls
-from django.urls import include
+from django.urls import include, path
 
 urlpatterns = [
-    django.urls.path('admin/', admin.site.urls),
-    django.urls.path("demo/", django.urls.include("demo.urls")),
-    django.urls.path('store/', include("store.urls"))
+    path('admin/', admin.site.urls),
+    path("demo/", django.urls.include("demo.urls")),
+    path('store/', include("store.urls"))
 ]
 admin.site.site_header = 'Hubmax Stores'
 admin.site.index_title = 'demo_project_header'

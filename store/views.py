@@ -1,5 +1,3 @@
-from django.http import HttpResponse
-from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .serializer import ProductSerializer
@@ -12,7 +10,7 @@ from rest_framework import status
 #localhost:8080/store/products
 #localhost:8080/store/products/1
 
-@api_view()
+@api_view(['GET'])
 def product_list(request):
     products = Product.objects.all()
     serializer = ProductSerializer(products, many=True)
